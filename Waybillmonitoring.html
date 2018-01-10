@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="print">
+    <meta name="Keywords" content="TMS后台管理系统">
+    <meta name="Description" content="基于bootstrap和jquery搭建的后台管理系统">
+    <title>全局统计</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">  <!-- 手机端 -->
+    <link rel="stylesheet" href="css/common/reset.css">  <!-- 样式初始化 -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="css/index.css">  <!-- 页面样式 -->
+    <link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css"> <!--引入bootstrap3.3-->
+    <link rel="stylesheet" href="css/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="css/pagination.css">
+</head>
+<style>
+    ul.header, li {
+        float: right;
+    }
+
+    .iconStyle i{
+        color: #cccccc;
+        font-size: 18px;
+        padding: 0px 10px;
+    }
+
+</style>
+<body>
+
+<div class="content_main container-fluid" >
+    <div id="iframe_home" class="iframe cur">
+        <div  style="min-height: 50px;background-color: transparent;line-height: 50px;color: #0f0f0f;padding: 0px 40px;border-bottom: 3px solid green;padding-left: 15px;">
+            <!--<a href="tubiao.html" target="_self">-->
+                <span style="font-size: 24px;margin-right: 20px;cursor: pointer" class="backUp"><</span>
+            <!--</a>-->
+            <span style="min-height: 50px;background-color: transparent;line-height: 50px;width: 100%; font-size: 24px;color: #0f0f0f;">运单监控</span>
+            <ul class="header">
+                <i class="glyphicon glyphicon-tree-deciduous" style="color: #cccccc;"></i><li>运单监控</li>
+                <li></li>主页  <i class="glyphicon glyphicon-chevron-right" style="color: #cccccc;"></i>
+            </ul>
+        </div>
+
+        <div class="row">
+            <form class="form-inline">
+                <div class="row">
+                    <div class="col-md-12" style="margin-bottom: 20px;">
+                        <div data-toggle="distpicker">
+                            <div class="form-group">
+                                <label class="sr-only" for="province1">Province</label>
+                                <select class="form-control" id="province1"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="city1">City</label>
+                                <select class="form-control" id="city1"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="district1">District</label>
+                                <select class="form-control" id="district1"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Terminal" class="control-label"></label>
+                                <input type="text" id="Terminal" class="form-control" placeholder="承运人" >
+                            </div>
+                            <div class="form-group">
+                                <label for="Terminal Number"></label>
+                                <input type="text" id="Terminal Number" class="form-control" placeholder="终端号" >
+                            </div>
+                            <div class="form-group">
+                                <label for="Terminal Name" class="control-label"></label>
+                                <input type="text" id="Terminal Name" class="form-control" placeholder="终端名称" >
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12" style="margin-bottom: 20px;">
+                        <div class="form-group" >
+                            <label for="waybill number"></label>
+                            <input type="text" id="waybill number" class="form-control" placeholder="运单号">
+                        </div>
+                        <div class="form-group" >
+                            <label for="histroy"></label>
+                            <select name="" id="histroy"  class="form-control">
+                                <option value="实时">实时</option>
+                                <option value="历史">历史</option>
+                                <option value="全部">全部</option>
+
+                            </select>
+                        </div>
+                        <button class="btn btn-primary">搜索</button>
+                    </div>
+                </div>
+
+            </form>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>运单号</th>
+                        <th>终端号</th>
+                        <th>终端名称</th>
+                        <th>启运时间</th>
+                        <th>签收时间</th>
+                        <th>状态监控</th>
+                        <th>承运人</th>
+                        <th>装备编号</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="iconStyle">
+                            <a href="income.html"><i class="glyphicon glyphicon-filter"></i></a>
+                            <a href="income.html"><i class="glyphicon glyphicon-tint"></i></a>
+                            <a href="income.html"><i class=".glyphicon .glyphicon-fire"></i></a>
+                            <a href="income.html"><i class="glyphicon glyphicon-adjust"></i></a>
+                            <a href="income.html"><i class="glyphicon glyphicon-tower"></i></a>
+                            <a href="income.html"><i class="glyphicon glyphicon-map-marker"></i></a>
+                        </td>
+                        <td> </td>
+                        <td> </td>
+                        <td class="iconStyle">
+                            <a href="income.html"><i class="glyphicon glyphicon-list-alt"></i></a>
+                            <a href="income.html"><i class="glyphicon glyphicon-picture"></i></a>
+                            <a href="income.html"><i class="glyphicon glyphicon-save"></i></a>
+                            <a href="income.html"><i class="glyphicon glyphicon-tasks"></i></a>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="iconStyle">
+                            <a href="income.html"><i class="glyphicon glyphicon-filter"></i></a>
+                            <a href="income.html"><i class="glyphicon glyphicon-tint"></i></a>
+                            <a href="income.html"><i class=".glyphicon .glyphicon-fire"></i></a>
+                            <a href="income.html"><i class="glyphicon glyphicon-adjust"></i></a>
+                            <a href="income.html"><i class="glyphicon glyphicon-tower"></i></a>
+                            <a href="income.html"><i class="glyphicon glyphicon-map-marker"></i></a>
+                        </td>
+                        <td> </td>
+                        <td> </td>
+                        <td class="iconStyle">
+                            <a href="income.html"><i class="glyphicon glyphicon-list-alt"></i></a>
+                            <a href="income.html"><i class="glyphicon glyphicon-picture"></i></a>
+                            <a href="income.html"><i class="glyphicon glyphicon-save"></i></a>
+                            <a href="income.html"><i class="glyphicon glyphicon-tasks"></i></a>
+                        </td>
+
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="content_main container-fluid">
+                <div class="" style="float:left; text-align: center;height: 85px;line-height: 85px;margin:0 20px 0 15px;">
+                    <span>共 45 条记录，</span>
+                    <span>当前显示第 1 页</span>
+                </div>
+                <div class="pages">
+                    <div id="Pagination"></div>
+                    <div class="searchPage">
+                        <span class="page-sum">共<strong class="allPage">15</strong>页</span>
+                        <span class="page-go">跳转<input type="text">页</span>
+                        <a href="javascript:;" class="page-btn">GO</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer" style="text-align: center;height: 50px;line-height: 50px;border-top: 10px solid #eee;">
+                Copyright © 2012-2017 CogLink All Rights Reserved.
+                歌联科技 版权所有
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!--添加模态框开始-->
+<div class="modal fade" id="Addjurisdiction">
+    <div class="modal-dialog">
+        <div class="modal-content message_align">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">添加权限</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="menuName" class="col-sm-2 control-label">菜单名：</label>
+                        <div class="col-sm-10">
+                            <a class="cleanIcon glyphicon glyphicon-remove btn form-control-feedback" style="pointer-events: auto"></a>
+                            <input type="text" class="form-control" id="menuName" placeholder="导航菜单名称&nbsp 例如 &nbsp 系统管理">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="link" class="col-sm-2 control-label">链接：</label>
+                        <div class="col-sm-10">
+                            <a class="cleanIcon glyphicon glyphicon-remove btn form-control-feedback" style="pointer-events: auto"></a>
+                            <input type="text" class="form-control" id="link" placeholder="输入模块/控制器/方法即可&nbsp 例如&nbsp Admin/Nav/index">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="icon" class="col-sm-2 control-label">图标：</label>
+                        <div class="col-sm-10">
+                            <a  class="cleanIcon glyphicon glyphicon-remove btn form-control-feedback" style="pointer-events: auto" ></a>
+                            <input type="text" class="form-control" id="icon" placeholder="例如&nbsplefticon01.png">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="selectCar" class="col-sm-2 control-label">选项卡：</label>
+                        <div class="col-sm-10">
+                            <select name="" class="form-control" id="selectCar">
+                                <option value="请选择">请选择</option>
+                                <option value="开">开</option>
+                                <option value="关">关</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a  onclick="urlSubmit()" class="btn btn-info" data-dismiss="modal">提交</a>
+                <button type="button"  class="btn btn-info" data-dismiss="modal">取消</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--添加模态框结束-->
+
+</body>
+<scrip>
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/BootstrapMenu.min.js"></script><!--基于Bootstrap的jQuery右键上下文菜单插件-->
+    <script type="text/javascript" src="js/jquery.pagination.js"></script>
+    <script src="js/distpicker.data.js"></script>
+    <script src="js/distpicker.js"></script>
+    <script src="js/main.js"></script>
+</scrip>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $("#Pagination").pagination("15");
+    });
+
+</script>
+</html>

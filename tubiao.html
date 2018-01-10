@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东供应链管理物联网云平台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">  <!-- 手机端 -->
+    <link rel="stylesheet" href="css/common/reset.css">  <!-- 样式初始化 -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="css/index.css">  <!-- 页面样式 -->
+    <link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css"> <!--引入bootstrap3.3-->
+    <link rel="stylesheet" href="css/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="css/pagination.css">
+    <style>
+
+
+        ul.header, li {
+            float: right;
+        }
+
+        .iconStyle i {
+            color: #cccccc;
+            font-size: 18px;
+            padding: 0px 10px;
+        }
+
+        .details {
+            position: absolute;
+            bottom: 10px;
+            right: 38%;
+        }
+
+        i.glyphicon.glyphicon-chevron-right {
+            padding: 0px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content_main container-fluid">
+    <div id="iframe_home" class="iframe cur">
+        <div style="min-height: 50px;background-color: transparent;line-height: 50px;color: #0f0f0f;padding: 0px 40px;border-bottom: 3px solid green;padding-left: 15px;">
+            <span style="min-height: 50px;background-color: transparent;line-height: 50px;width: 100%; font-size: 24px;color: #0f0f0f;">全局统计</span>
+            <ul class="header">
+                <li>全局统计</li>
+                <li>全局管理 <i class="glyphicon glyphicon-chevron-right" style="color: #cccccc;"></i></li>
+                <i class="glyphicon glyphicon-tree-deciduous" style="color: #cccccc;"></i>
+                <li></li>
+                主页 <i class="glyphicon glyphicon-chevron-right" style="color: #cccccc;"></i>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="row">
+                <div class="col-sm-5" style="text-align: center;">
+                    <div id="main1" style="width: 600px;height:400px;"></div>
+
+                </div><!-- /row -->
+                <div class="col-sm-7">
+                    <div id="mains" style="width:900px;height:400px;"></div>
+                </div>
+            </div>
+        </div>
+        <div style="min-height: 50px;background-color: transparent;line-height: 50px;color: #0f0f0f;padding: 0px 40px;border-bottom: 3px solid green;padding-left: 15px;"></div>
+        <ul>
+            <span style="min-height: 50px;background-color: transparent;line-height: 50px;width: 100%; font-size: 24px;color: #0f0f0f;">设备统计</span>
+            <form class="form-inline" style="float: right;">
+                <div class="row">
+                    <div class="col-md-12"
+                         style="margin-bottom: 20px;min-height: 50px;background-color: transparent;line-height: 50px;">
+                        <div data-toggle="distpicker">
+                            <div class="form-group">
+                                <label class="sr-only" for="province1">Province</label>
+                                <select class="form-control" id="province1"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="city1">City</label>
+                                <select class="form-control" id="city1"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="district1">District</label>
+                                <select class="form-control" id="district1"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Terminal" class="control-label">状态</label>
+                                <select name="" id="Terminal" class="form-control">
+                                    <option value="全部">全部</option>
+                                    <option value="空闲中">空闲中</option>
+                                    <option value="工作中">工作中</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Terminal Number"></label>
+                                <input type="text" id="Terminal Number" class="form-control"
+                                       placeholder="终端号">
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary">查询</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+        </ul>
+        <div class="row">
+            <div class="row">
+                <div class="col-sm-3" style="text-align: center;">
+                    <div style="width: 600px;height:400px;"></div>
+
+                </div><!-- /row -->
+
+                <div class="col-sm-9" style="text-align: center;">
+                    <div class="infobox infobox-green">
+                        <div class="infobox-icon ">
+                            <i class="glyphicon glyphicon-th"></i>
+                        </div>
+
+                        <div class="infobox-data">
+                            <span class="infobox-data-number">3</span>
+                            <div class="infobox-content">工作中</div>
+
+                        </div>
+                        <a href="#" class="details">更多信息<i
+                                class="glyphicon glyphicon-chevron-right"></i></a>
+
+                    </div>
+
+                    <div class="infobox infobox-blue  ">
+                        <div class="infobox-icon">
+                            <i class="glyphicon glyphicon-send"></i>
+                        </div>
+
+                        <div class="infobox-data">
+                            <span class="infobox-data-number">20</span>
+                            <div class="infobox-content">今日正在派送</div>
+
+                        </div>
+                        <a href="#" class="details">更多信息<i
+                                class="glyphicon glyphicon-chevron-right"></i></a>
+
+                    </div>
+                    <div class="infobox infobox-pink  ">
+                        <div class="infobox-icon">
+                            <i class="glyphicon glyphicon-flash"></i>
+                        </div>
+
+                        <div class="infobox-data">
+                            <span class="infobox-data-number">50</span>
+                            <div class="infobox-content">今日已完成</div>
+
+                        </div>
+                        <a href="#" class="details">更多信息<i
+                                class="glyphicon glyphicon-chevron-right"></i></a>
+
+                    </div>
+
+                    <div class="infobox infobox-red " style="width: 518px;">
+                        <div class="infobox-icon">
+                            <i class="glyphicon glyphicon-asterisk"></i>
+                        </div>
+                        <div class="infobox-data">
+                            <span class="infobox-data-number">75</span>
+                            <div class="infobox-content">总任务</div>
+
+                        </div>
+                        <a href="#" class="details">更多信息<i
+                                class="glyphicon glyphicon-chevron-right"></i></a>
+
+                    </div>
+                    <div class="infobox infobox-red " style="width: 518px;">
+                        <div class="infobox-icon">
+                            <i class="glyphicon glyphicon-asterisk"></i>
+                        </div>
+                        <div class="infobox-data">
+                            <span class="infobox-data-number">75</span>
+                            <div class="infobox-content">总任务</div>
+
+                        </div>
+                        <a href="#" class="details">更多信息<i
+                                class="glyphicon glyphicon-chevron-right"></i></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div style="min-height: 50px;background-color: transparent;line-height: 50px;color: #0f0f0f;padding: 0px 40px;border-bottom: 3px solid green;padding-left: 15px;"></div>
+        <ul>
+            <span style="min-height: 50px;background-color: transparent;line-height: 50px;width: 100%; font-size: 24px;color: #0f0f0f;">设备跟踪</span>
+
+        </ul>
+        <div class="row">
+            <div class="row" style="border-bottom: 1px solid #e0e0e0;">
+                <div class="col-sm-8" style="text-align: center;">
+                    <div id="zhuzhuang" style="width: 600px;height:400px;padding:0 0 0 200px;"></div>
+
+                </div><!-- /row -->
+
+                <div class="col-sm-4" style="text-align: center;">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>终端号</th>
+                                <th>状态</th>
+                                <th>电量</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>TGPR20179731</td>
+                                <td>工作中</td>
+                                <td>50%</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content_main container-fluid">
+                        <div class=""
+                             style="float:left; text-align: center;height: 85px;line-height: 85px;margin:0 20px 0 15px;">
+                            <span>共 45 条记录，</span>
+                            <span>当前显示第 1 页</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer" style="text-align: center;height: 50px;line-height: 50px;">
+            Copyright © 2012-2017 CogLink All Rights Reserved.
+            歌联科技 版权所有
+        </div>
+    </div>
+</div>
+
+</body>
+<scrip>
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/BootstrapMenu.min.js"></script><!--基于Bootstrap的jQuery右键上下文菜单插件-->
+    <script type="text/javascript" src="js/jquery.pagination.js"></script>
+    <script src="js/distpicker.data.js"></script>
+    <script src="js/distpicker.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/echarts.min.js"></script>
+
+
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+
+
+
+</scrip>
+<script type="text/javascript">
+
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main1'));
+    var myCharts = echarts.init(document.getElementById('mains'));
+    var mapDom = echarts.init(document.getElementById("zhuzhuang"));
+    var app = {};
+    option = null;
+    app.title = '热力图与百度地图扩展';
+    // 指定图表的配置项和数据
+    data = [["2000-06-05", 116], ["2000-06-06", 129], ["2000-06-07", 135], ["2000-06-08", 86], ["2000-06-09", 73], ["2000-06-10", 85], ["2000-06-11", 73], ["2000-06-12", 68], ["2000-06-13", 92], ["2000-06-14", 130], ["2000-06-15", 245], ["2000-06-16", 139], ["2000-06-17", 115], ["2000-06-18", 111], ["2000-06-19", 309], ["2000-06-20", 206], ["2000-06-21", 137], ["2000-06-22", 128], ["2000-06-23", 85], ["2000-06-24", 94], ["2000-06-25", 71], ["2000-06-26", 106], ["2000-06-27", 84], ["2000-06-28", 93], ["2000-06-29", 85], ["2000-06-30", 73], ["2000-07-01", 83], ["2000-07-02", 125], ["2000-07-03", 107], ["2000-07-04", 82], ["2000-07-05", 44], ["2000-07-06", 72], ["2000-07-07", 106], ["2000-07-08", 107], ["2000-07-09", 66], ["2000-07-10", 91], ["2000-07-11", 92], ["2000-07-12", 113], ["2000-07-13", 107], ["2000-07-14", 131], ["2000-07-15", 111], ["2000-07-16", 64], ["2000-07-17", 69], ["2000-07-18", 88], ["2000-07-19", 77], ["2000-07-20", 83], ["2000-07-21", 111], ["2000-07-22", 57], ["2000-07-23", 55], ["2000-07-24", 60]];
+
+    var dateList = data.map(function (item) {
+        return item[0];
+    });
+    var valueList = data.map(function (item) {
+        return item[1];
+    });
+
+    option1 = {
+        title: {
+            text: '温度(°C)',
+
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross'
+            }
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['21:00/14-1', '01:15', '02:30', '03:45', '05:00', '06:15', '07:30', '08:45', '10:00', '11:15', '12:30', '13:45', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15', '22:30', '23:45']
+        },
+        yAxis: {
+            show: false,
+            type: 'value',
+            axisLabel: {
+                formatter: '{value} °C'
+            },
+            axisPointer: {
+                snap: false
+            }
+        },
+        visualMap: {
+            show: false,
+            dimension: 0,
+            pieces: [{
+                lte: 6,
+                color: 'green'
+            }, {
+                gt: 6,
+                lte: 8,
+                color: 'red'
+            }, {
+                gt: 8,
+                lte: 14,
+                color: 'green'
+            }, {
+                gt: 14,
+                lte: 17,
+                color: 'red'
+            }, {
+                gt: 17,
+                color: 'green'
+            }]
+        },
+        series: [
+            {
+                name: '用电量',
+                type: 'line',
+                smooth: true,
+                data: [300, 280, 250, 260, 270, 300, 550, 500, 400, 390, 380, 390, 400, 500, 600, 750, 800, 700, 600, 400],
+                markArea: {
+                    data: [[{
+                        name: '早高峰',
+                        xAxis: '07:30'
+                    }, {
+                        xAxis: '10:00'
+                    }], [{
+                        name: '晚高峰',
+                        xAxis: '17:30'
+                    }, {
+                        xAxis: '21:15'
+                    }]]
+                }
+            }
+        ]
+    };
+//    main.title = '世界人口总量 - 条形图';
+
+    option2 = {
+        title: {
+            text: '世界人口总量',
+            subtext: '数据来自网络'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {
+            data: ['2011年', '2012年']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.01]
+        },
+        yAxis: {
+            type: 'category',
+            data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)']
+        },
+        series: [
+            {
+                name: '2011年',
+                type: 'bar',
+                data: [18203, 23489, 29034, 104970, 131744, 630230]
+            },
+            {
+                name: '2012年',
+                type: 'bar',
+                data: [19325, 23438, 31000, 121594, 134141, 681807]
+            }
+        ]
+    };
+
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option1);
+    myCharts.setOption(option2)
+
+
+
+//    热力图 与 百度地图
+    $.get('data.json', function (data) {
+        var points = [].concat.apply([], data.map(function (track) {
+            return track.map(function (seg) {
+                return seg.coord.concat([1]);
+            });
+        }));
+        mapDom.setOption(option = {
+            animation: false,
+            bmap: {
+                center: [120.13066322374, 30.240018034923],
+                zoom: 14,
+                roam: true
+            },
+            visualMap: {
+                show: false,
+                top: 'top',
+                min: 0,
+                max: 5,
+                seriesIndex: 0,
+                calculable: true,
+                inRange: {
+                    color: ['blue', 'blue', 'green', 'yellow', 'red']
+                }
+            },
+            series: [{
+                type: 'heatmap',
+                coordinateSystem: 'bmap',
+                data: points,
+                pointSize: 5,
+                blurSize: 6
+            }]
+        });
+        if (!app.inNode) {
+            // 添加百度地图插件
+            var bmap = mapDom.getModel().getComponent('bmap').getBMap();
+            bmap.addControl(new BMap.MapTypeControl());
+        }
+    });
+    if (option && typeof option === "object") {
+        mapDom.setOption(option, true);
+    }
+
+
+
+</script>
+</html>

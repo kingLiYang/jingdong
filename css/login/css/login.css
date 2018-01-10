@@ -1,0 +1,16 @@
+body{background: url(../../../img/login.png) no-repeat;background-size:cover;font-size: 16px;}
+.form{background: rgba(255,255,255,0.9);width:400px;margin:300px auto; border-radius: 15px;}
+#login_form{display: block;}
+#register_form{display: none;}
+.fa{display: inline-block;top: 27px;left: 6px;position: relative;color: #ccc;}
+input[type="text"],input[type="password"]{padding-left:26px;}
+.checkbox{padding-left:21px;}
+
+
+
+
+
+
+
+
+
